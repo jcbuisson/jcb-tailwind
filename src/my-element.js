@@ -1,5 +1,4 @@
 import {LitElement, css, html, unsafeCSS} from 'lit';
-import { customElement, property } from 'lit/decorators.js'
 import litLogo from './assets/lit.svg'
 import globalStyles from  './global.css?inline';
 
@@ -9,21 +8,29 @@ import globalStyles from  './global.css?inline';
  * @slot - This element has a slot
  * @csspart button - The button
  */
-@customElement('my-element')
 export class MyElement extends LitElement {
-  /**
-   * Copy for the read the docs hint.
-   */
-  @property()
-  docsHint = 'Click on the Vite and Lit logos to learn more'
 
-  /**
-   * The number of times the button has been clicked.
-   */
-  @property({ type: Number })
-  count = 0
+  static get properties() {
+    return {
+      docsHint: { type: String },
+      count: { type: Number },
+    }
+  }
 
+  constructor() {
+    super()
+    // default values - before override by attributes
+    this.docsHint = 'Click on the Vite and Lit logos to learn more'
+    this.count = 0
+  }
+
+
+  handleClick() {
+    this.count++
+  }
+  
   render() {
+    console.log('render', this._onClick)
     return html`
       <div class="flex justify-around bg-white rounded-xl shadow-xl shadow-indigo-500/40">
         <a href="https://vitejs.dev" target="_blank">
@@ -35,16 +42,12 @@ export class MyElement extends LitElement {
       </div>
       <slot></slot>
       <div class="card">
-        <button @click=${this._onClick} part="button">
+        <button @click=${this.handleClick} part="button">
           count is ${this.count}
         </button>
       </div>
       <p class="read-the-docs">${this.docsHint}</p>
     `
-  }
-
-  private _onClick() {
-    this.count++
   }
 
   static styles = [
@@ -121,8 +124,4 @@ export class MyElement extends LitElement {
   `]
 }
 
-declare global {
-  interface HTMLElementTagNameMap {
-    'my-element': MyElement
-  }
-}
+window.customElements.define('my-element', MyElement)
