@@ -1,11 +1,10 @@
 {
-  "name": "lit-tailwind-integration",
-  "private": true,
-  "version": "0.0.0",
+  "name": "jcb-tailwind",
+  "version": "1.0.1",
   "type": "module",
-  "main": "dist/my-element.es.js",
+  "main": "dist/jcb-tailwind.js",
   "exports": {
-    ".": "./dist/my-element.es.js"
+    ".": "./dist/jcb-tailwind.js"
   },
   "files": [
     "dist"

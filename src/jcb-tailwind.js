@@ -24,13 +24,11 @@ export class MyElement extends LitElement {
     this.count = 0
   }
 
-
   handleClick() {
     this.count++
   }
   
   render() {
-    console.log('render', this._onClick)
     return html`
       <div class="flex justify-around bg-white rounded-xl shadow-xl shadow-indigo-500/40">
         <a href="https://vitejs.dev" target="_blank">
@@ -124,4 +122,4 @@ export class MyElement extends LitElement {
   `]
 }
 
-window.customElements.define('my-element', MyElement)
+window.customElements.define('jcb-tailwind', MyElement)
