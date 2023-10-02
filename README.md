@@ -13,15 +13,17 @@ npm run build   # --> dist/jcb-tailwind.js
 
 # Test in a VueJS 3 project
 ```
-npx create-vite@latest test-jcb-tailwind --template vue
-cd test-jcb-tailwind
+npx create-vite@latest test --template vue
+cd test
 npm i jcb-tailwind
 ```
 
 Modifier App.js :
 ```
 <template>
-   <jcb-tailwind>Hello</jcb-tailwind>
+   <jcb-tailwind>
+      <h1>Hello</h1>
+   </jcb-tailwind>
 </template>
 
 <script setup>
