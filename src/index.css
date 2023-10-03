@@ -1,8 +1,11 @@
-:host {
-  display: inline-block; /* by default a CE is inline and width & height do not apply */
+/* CSS externe, appliqué dans index.html ? */
+
+/* by default a CE is inline and width & height do not apply */
+/* :host {
+  display: inline-block;
   width: 100%;
   height: 100%;
-}
+} */
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
