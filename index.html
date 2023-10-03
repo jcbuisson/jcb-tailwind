@@ -1,16 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Lit + TS</title>
-    <link rel="stylesheet" href="./src/index.css" />
-    <script type="module" src="/src/jcb-tailwind.js"></script>
-  </head>
-  <body>
-    <jcb-tailwind>
-      <h1>Vite + Lit</h1>
-    </jcb-tailwind>
-  </body>
+   <head>
+      <meta charset="UTF-8" />
+      <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Camera</title>
+      <script type="module" src="/src/jcb-tailwind.js"></script>
+   </head>
+   <body>
+      <div class="vertical">
+         <div class="horizontal">
+            <jcb-tailwind id="camera"></jcb-tailwind>
+         </div>
+      </div>
+   </body>
 </html>
+
+<script>
+   const cameraElement = document.getElementById('camera')
+   cameraElement.addEventListener('close', () => {
+      console.log('close')
+   })
+</script>
+
+<style>
+/* CSS externe au webcomponent */
+
+:root {
+   /* propagé dans le webcomponent et semble servir de référence pour text-normal : text-xl etc. sont calculés sur cette base */
+   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+   font-size: 16px;
+   line-height: 24px;
+   font-weight: 400;
+
+   font-synthesis: none;
+   text-rendering: optimizeLegibility;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   /* -webkit-text-size-adjust: 100%; */
+}
+
+.horizontal {
+   display: flex;
+   justify-content: center;
+}
+
+.vertical {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   height: 100vh;
+}
+</style>

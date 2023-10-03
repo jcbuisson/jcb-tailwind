@@ -1,7 +1,7 @@
 import {LitElement, css, html, unsafeCSS} from 'lit'
 import litLogo from './assets/lit.svg'
 
-// MAGIE ICI
+// MAGIC HERE
 import tailwindStyles from  './tailwind.css?inline'
 
 /**
@@ -12,118 +12,124 @@ import tailwindStyles from  './tailwind.css?inline'
  */
 export class MyElement extends LitElement {
 
-  static get properties() {
-    return {
-      docsHint: { type: String },
-      count: { type: Number },
-    }
-  }
+   static get properties() {
+      return {
+         docsHint: { type: String },
+         count: { type: Number },
+      }
+   }
 
-  constructor() {
-    super()
-    // default values - before override by attributes
-    this.docsHint = 'Click on the Vite and Lit logos to learn more'
-    this.count = 0
-  }
+   constructor() {
+      super()
+      // default values - before override by attributes
+      this.docsHint = 'Click on the Vite and Lit logos to learn more'
+      this.count = 0
+   }
 
-  handleClick() {
-    this.count++
-  }
+   handleClick() {
+      this.count++
+      const closeEvent = new Event('close')
+      this.dispatchEvent(closeEvent) // 'this' and not 'document'
+   }
   
-  render() {
-    return html`
-      <div class="flex justify-around bg-white rounded-xl shadow-xl shadow-indigo-500/40">
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://lit.dev" target="_blank">
-          <img src=${litLogo} class="logo lit" alt="Lit logo" />
-        </a>
-      </div>
-      <slot></slot>
-      <div class="card">
-        <button @click=${this.handleClick} part="button">
-          count is ${this.count}
-        </button>
-      </div>
-      <p class="read-the-docs">${this.docsHint}</p>
-    `
-  }
+   render() {
+      return html`
+         <div class="flex justify-around bg-white rounded-xl shadow-xl shadow-indigo-500/40">
+            <a href="https://vitejs.dev" target="_blank">
+               <img src="/vite.svg" class="logo" alt="Vite logo" />
+            </a>
+            <a href="https://lit.dev" target="_blank">
+               <img src=${litLogo} class="logo lit" alt="Lit logo" />
+            </a>
+         </div>
 
-  static styles = [
-    // MAGIE ICI
-    unsafeCSS(tailwindStyles),
+         <slot></slot>
 
-    css`
-    :host {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 2rem;
-      text-align: center;
-    }
+         <div class="card">
+            <button @click=${this.handleClick} part="button">
+               count is ${this.count}
+            </button>
+         </div>
+         <p class="read-the-docs">${this.docsHint}</p>
+      `
+   }
 
-    .logo {
-      height: 6em;
-      padding: 1.5em;
-      will-change: filter;
-    }
-    .logo:hover {
-      filter: drop-shadow(0 0 2em #646cffaa);
-    }
-    .logo.lit:hover {
-      filter: drop-shadow(0 0 2em #325cffaa);
-    }
+   static styles = [
 
-    .card {
-      padding: 2em;
-    }
+      // MAGIC HERE
+      unsafeCSS(tailwindStyles),
 
-    .read-the-docs {
-      color: #888;
-    }
+      css`
+         :host {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+         }
 
-    h1 {
-      font-size: 3.2em;
-      line-height: 1.1;
-    }
+         .logo {
+            height: 6em;
+            padding: 1.5em;
+            will-change: filter;
+         }
+         .logo:hover {
+            filter: drop-shadow(0 0 2em #646cffaa);
+         }
+         .logo.lit:hover {
+            filter: drop-shadow(0 0 2em #325cffaa);
+         }
 
-    a {
-      font-weight: 500;
-      color: #646cff;
-      text-decoration: inherit;
-    }
-    a:hover {
-      color: #535bf2;
-    }
+         .card {
+            padding: 2em;
+         }
 
-    button {
-      border-radius: 8px;
-      border: 1px solid transparent;
-      padding: 0.6em 1.2em;
-      font-size: 1em;
-      font-weight: 500;
-      font-family: inherit;
-      background-color: #1a1a1a;
-      cursor: pointer;
-      transition: border-color 0.25s;
-    }
-    button:hover {
-      border-color: #646cff;
-    }
-    button:focus,
-    button:focus-visible {
-      outline: 4px auto -webkit-focus-ring-color;
-    }
+         .read-the-docs {
+            color: #888;
+         }
 
-    @media (prefers-color-scheme: light) {
-      a:hover {
-        color: #747bff;
-      }
-      button {
-        background-color: #f9f9f9;
-      }
-    }
-  `]
+         h1 {
+            font-size: 3.2em;
+            line-height: 1.1;
+         }
+
+         a {
+            font-weight: 500;
+            color: #646cff;
+            text-decoration: inherit;
+         }
+         a:hover {
+            color: #535bf2;
+         }
+
+         button {
+            border-radius: 8px;
+            border: 1px solid transparent;
+            padding: 0.6em 1.2em;
+            font-size: 1em;
+            font-weight: 500;
+            font-family: inherit;
+            background-color: #1a1a1a;
+            cursor: pointer;
+            transition: border-color 0.25s;
+         }
+         button:hover {
+            border-color: #646cff;
+         }
+         button:focus,
+         button:focus-visible {
+            outline: 4px auto -webkit-focus-ring-color;
+         }
+
+         @media (prefers-color-scheme: light) {
+            a:hover {
+            color: #747bff;
+            }
+            button {
+            background-color: #f9f9f9;
+            }
+         }
+      `
+   ]
 }
 
 window.customElements.define('jcb-tailwind', MyElement)
