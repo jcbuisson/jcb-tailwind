@@ -1,6 +1,8 @@
-import {LitElement, css, html, unsafeCSS} from 'lit';
+import {LitElement, css, html, unsafeCSS} from 'lit'
 import litLogo from './assets/lit.svg'
-import globalStyles from  './global.css?inline';
+
+// MAGIE ICI
+import globalStyles from  './global.css?inline'
 
 /**
  * An example element.
@@ -49,7 +51,9 @@ export class MyElement extends LitElement {
   }
 
   static styles = [
+    // MAGIE ICI
     unsafeCSS(globalStyles),
+
     css`
     :host {
       max-width: 1280px;
