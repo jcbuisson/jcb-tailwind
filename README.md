@@ -8,26 +8,26 @@ npm run dev
 
 # Build
 ```
-npm run build   # --> dist/jcb-tailwind.js
+npm run build   # --> dist/jcb-camera.js
 ```
 
 # Test in a VueJS 3 project
 ```
 npx create-vite@latest test --template vue
 cd test
-npm i jcb-tailwind
+npm i jcb-camera
 ```
 
 Modifier App.js :
 ```
 <template>
-   <jcb-tailwind>
+   <jcb-camera>
       <h1>Hello</h1>
-   </jcb-tailwind>
+   </jcb-camera>
 </template>
 
 <script setup>
-import 'jcb-tailwind'
+import 'jcb-camera'
 </script>
 ```
 

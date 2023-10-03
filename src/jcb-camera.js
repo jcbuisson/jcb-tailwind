@@ -122,4 +122,4 @@ export class MyElement extends LitElement {
   `]
 }
 
-window.customElements.define('jcb-tailwind', MyElement)
+window.customElements.define('jcb-camera', MyElement)

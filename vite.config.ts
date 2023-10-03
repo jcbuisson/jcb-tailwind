@@ -4,7 +4,7 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   build: {
     lib: {
-      entry: 'src/jcb-tailwind.js',
+      entry: 'src/jcb-camera.js',
       formats: ['es']
     },
     rollupOptions: {

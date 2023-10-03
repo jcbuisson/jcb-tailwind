@@ -1,10 +1,10 @@
 {
-  "name": "jcb-tailwind",
+  "name": "jcb-camera",
   "version": "1.0.1",
   "type": "module",
-  "main": "dist/jcb-tailwind.js",
+  "main": "dist/jcb-camera.js",
   "exports": {
-    ".": "./dist/jcb-tailwind.js"
+    ".": "./dist/jcb-camera.js"
   },
   "files": [
     "dist"
