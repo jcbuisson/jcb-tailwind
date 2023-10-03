@@ -2,7 +2,7 @@ import {LitElement, css, html, unsafeCSS} from 'lit'
 import litLogo from './assets/lit.svg'
 
 // MAGIE ICI
-import globalStyles from  './global.css?inline'
+import tailwindStyles from  './tailwind.css?inline'
 
 /**
  * An example element.
@@ -52,7 +52,7 @@ export class MyElement extends LitElement {
 
   static styles = [
     // MAGIE ICI
-    unsafeCSS(globalStyles),
+    unsafeCSS(tailwindStyles),
 
     css`
     :host {
